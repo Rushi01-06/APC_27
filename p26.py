@@ -1,31 +1,10 @@
-from abc import ABC, abstractmethod
+import numpy as np
 
-class Report(ABC):
-    @abstractmethod
-    def generate(self):
-        pass
+np.random.seed(42)
+arr = np.random.randint(1, 101, size=(3, 4, 5))
+flat = arr.flatten()
+avg = np.mean(flat)
 
-class PDFReport(Report):
-    def generate(self):
-        return "Generating PDF report layout and compiling to document..."
-
-class ExcelReport(Report):
-    def generate(self):
-        return "Generating Excel report and populating spreadsheet cells..."
-
-class HTMLReport(Report):
-    def generate(self):
-        return "Generating HTML report and rendering web markup..."
-
-def process_report(report: Report):
-    result = report.generate()
-    print(result)
-
-if __name__ == "__main__":
-    pdf = PDFReport()
-    excel = ExcelReport()
-    html = HTMLReport()
-
-    process_report(pdf)
-    process_report(excel)
-    process_report(html)
+print("Elements > 50:\n", flat[flat > 50])
+print("\nEven elements:\n", flat[flat % 2 == 0])
+print("\nElements < average (Average = {}):\n".format(round(avg, 2)), flat[flat < avg])

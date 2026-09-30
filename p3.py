@@ -1,0 +1,11 @@
+import numpy as np
+arr = np.array([12, 45, 7, 23, 56, 89, 34, 67, 91, 15])
+maximum = np.max(arr)
+minimum = np.min(arr)
+total_sum = np.sum(arr)
+average = np.mean(arr)
+print("Array:  ", arr)
+print("Maximum:", maximum)
+print("Minimum:", minimum)
+print("Sum:    ", total_sum)
+print("Average:", average)
